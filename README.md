@@ -17,19 +17,47 @@ Configuration Options
 
 Configuration lines always start with a semicolon (`;`).
 
-`;=` : **Key reference**
+`;=` : **Key reference** :: _Required_
 
-Format: `<key character>:<GameObject path>`
+Format: `;=<key character>:<GameObject path>`
 
 ex: `;=T:Ground` means that the `T` character should create duplicates of the `Ground` GameObject in the hierarchy.
 
-`;s` : **Scale**
+---
 
-Format: `<integer>`
+`;n=` : **Parent container name** :: _Optional_
+
+Format: `;n=<string>`
+
+If supplied, all imported instances will be grouped together under a single GameObject with the specified name.
+
+This option can also be set individual instance containers.
+
+ex: `;=?:QuestionBlock,n=Blocks` means that the parent for all `QuestionBlock` instances will be named `Blocks` instead of the default `QuestionBlockContainer`.
+
+---
+
+`;z=` : **Global z-depth** :: _Optional_
+
+Format: `;z=<integer>`
+
+If set, all instance containers will be offset in the z-direction by this amount.
+
+This option can also be set individual instance containers.
+
+ex: `;=T:Ground,z=10` means the `GroundContainer` GameObject will have it's z transform set to 10.
+
+---
+
+`;s=` : **Scale** :: _Optional_
+
+Format: `;s=<integer>`
 
 ex: `;s16` means that 1 grid square in the Text Gen file equals 16 units in unity.
 
-`;+` : **Start map definition**
+---
+
+`;+` : **Start map definition** :: _Required_
 
 This should always be the last configuration option in your file. It means that all of the lines after this one until we reach the end of the file define the level.
 
@@ -38,11 +66,13 @@ Example Text Gen file
 ----------------------
 
 ```
+;n=LevelContainer
+;s=16
+;z=-10
 ;=@:MarioSprite
-;=T:Ground
-;=?:QuestionBlock
-;==:Brick
-;s16
+;=T:Ground,z=10
+;=?:QuestionBlock,n=Blocks
+;==:Brick,z=0,n=Bricks
 ;+
 
           ?
@@ -59,18 +89,14 @@ TTTTTTTTTTTTT
 Usage Instructions
 ------------------
 
-For each key reference you define in your Text Gen file, there must be one, and **only one** instance of the GameObject in the hierarchy.
-
-1. Go to `File > Import TextGen File...`.
-2. Select the Text Gen file you want to import from your project Assets.
-3. Click the `Import!` button.
+1. Prepare your prefab instances in the Hierarchy.
+2. Tag each of the prefab instances you want to use as a template with `TextGenTemplate`.
+3. Go to `GameObject > Import From TextGen File...`.
+4. Select the Text Gen file you want to import from your project Assets.
+5. Click the `Import!` button.
 
 
 TODO
 ----
 
-* Add `;n<string>` option to group all instances under a single GameObject
-* Group all instances of one GameObject together in a parent GameObject (ex: `GroundContainer`)
-* Add `;z<int>` option to set the z-depth of the GameObjects
-* Allow setting of z-depth on individual reference definitions. Ex: `;=T:Ground,z10`
 * Allow defining of multiple maps per file. This would be helpful if you wanted to define your foreground and background spirtes separately (maybe because there's some overlap?).
