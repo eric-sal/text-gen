@@ -70,6 +70,7 @@ TODO
 ----
 
 * Add `;n<string>` option to group all instances under a single GameObject
-* Group instances together in a parent GameObject
+* Group all instances of one GameObject together in a parent GameObject (ex: `GroundContainer`)
 * Add `;z<int>` option to set the z-depth of the GameObjects
 * Allow setting of z-depth on individual reference definitions. Ex: `;=T:Ground,z10`
+* Allow defining of multiple maps per file. This would be helpful if you wanted to define your foreground and background spirtes separately (maybe because there's some overlap?).
