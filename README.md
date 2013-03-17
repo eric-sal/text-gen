@@ -100,3 +100,9 @@ TODO
 ----
 
 * Allow defining of multiple maps per file. This would be helpful if you wanted to define your foreground and background spirtes separately (maybe because there's some overlap?).
+* Allow grouping of different objects under same parent. In the example below, all instances of both `MarioSprite` and `GoombaSprite` would be children of the `Characters` GameObject.
+
+    ```
+    ;=@:MarioSprite,n=Characters
+    ;=G:GoombaSprite,n=Characters
+    ```
