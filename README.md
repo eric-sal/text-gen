@@ -17,17 +17,21 @@ Configuration Options
 
 Configuration lines always start with a semicolon (`;`).
 
-**`;=` : Key reference**
+`;=` : **Key reference**
+
 Format: `<key character>:<GameObject path>`
+
 ex: `;=T:Ground` means that the `T` character should create duplicates of the `Ground` GameObject in the hierarchy.
 
-**`;s` : Scale**
+`;s` : **Scale**
+
 Format: `<integer>`
+
 ex: `;s16` means that 1 grid square in the Text Gen file equals 16 units in unity.
 
-**`;+` : Start map definition**
-This should always be the last configuration option in your file.
-It means that all of the lines after this one until we reach the end of the file define the level.
+`;+` : **Start map definition**
+
+This should always be the last configuration option in your file. It means that all of the lines after this one until we reach the end of the file define the level.
 
 
 Example Text Gen file
@@ -43,7 +47,9 @@ Example Text Gen file
 
           ?
 
+
     ?   =?=?=
+
  @
 TTTTTTTTTTTTT
 
