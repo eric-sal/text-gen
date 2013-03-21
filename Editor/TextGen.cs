@@ -1,5 +1,5 @@
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -44,6 +44,10 @@ public class TextGen : EditorWindow
 					templateSprites.Add (spriteName, sprite);
 					templateParents.Add (spriteName, container);
 				}
+			}
+
+			if (templateSprites.Count == 0) {
+				throw new System.Exception ("No Sprite templates found. Be sure to tag templates with 'TextGenTemplate'.");
 			}
 
 			TextAsset textGenFile = (TextAsset)file;	// Our file is actually a text file
@@ -118,11 +122,6 @@ public class TextGen : EditorWindow
 					}
 				}
 			}
-
-			// If we have a global parent container, set the z-depth
-			//if (parentContainer != null) {
-			//	parentContainer.transform.position = new Vector3 (0, 0, globalDepth);
-			//}
 
 			// Make necessary adjustments to our instance containers
 			foreach (DictionaryEntry pair in templateParents) {
