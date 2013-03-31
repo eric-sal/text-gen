@@ -35,6 +35,8 @@ This option can also be set individual instance containers.
 
 ex: `;=?:QuestionBlock,n=Blocks` means that the parent for all `QuestionBlock` instances will be named `Blocks` instead of the default `QuestionBlockContainer`.
 
+Multiple `GameObjects` can be assigned to the same parent container.
+
 ---
 
 `;z=` : **Global z-depth** :: _Optional_
@@ -69,7 +71,8 @@ Example Text Gen file
 ;n=LevelContainer
 ;s=16
 ;z=-10
-;=@:MarioSprite
+;=@:MarioSprite,n=Characters
+;=G:GoombaSprite,n=Characters
 ;=T:Ground,z=10
 ;=?:QuestionBlock,n=Blocks
 ;==:Brick,z=0,n=Bricks
@@ -80,7 +83,7 @@ Example Text Gen file
 
     ?   =?=?=
 
- @
+ @        G
 TTTTTTTTTTTTT
 
 ```
