@@ -63,6 +63,13 @@ ex: `;s16` means that 1 grid square in the Text Gen file equals 16 units in unit
 
 This should always be the last configuration option in your file. It means that all of the lines after this one until we reach the end of the file define the level.
 
+---
+
+**Notes:**
+
+The back tick (\`) is a special character that is ignored in the map definition. It's useful for visually filling out parts of your map definition file.
+In the example below, the `Pipe` GameObject is actually 2x2 squares in size. Using the back tick to visually fill out the rest of the pipe helps show how much space it takes up.
+
 
 Example Text Gen file
 ----------------------
@@ -76,15 +83,16 @@ Example Text Gen file
 ;=T:Ground,z=10
 ;=?:QuestionBlock,n=Blocks
 ;==:Brick,z=0,n=Bricks
+;=P:Pipe
 ;+
 
           ?
 
 
     ?   =?=?=
-
- @        G
-TTTTTTTTTTTTT
+               ``
+ @        G    P`
+TTTTTTTTTTTTTTTTTTT
 
 ```
 
