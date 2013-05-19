@@ -105,3 +105,10 @@ Usage Instructions
 3. Go to `GameObject > Import From TextGen File...`.
 4. Select the Text Gen file you want to import from your project Assets.
 5. Click the `Import!` button.
+
+
+Licensing
+=========
+Copyright (c) 2012 Eric Salczynski and Ramón Rocha
+
+Text Gen is released under the [MIT License](http://opensource.org/licenses/MIT).
